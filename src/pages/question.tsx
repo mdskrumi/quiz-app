@@ -17,7 +17,7 @@ const QuestionPage = () => {
         <Button variant="primary" handleClick={() => navigate("create")}>
           <p className="min-w-max">Add New Question</p>
         </Button>
-        <Button variant="ghost" handleClick={() => navigate("create")}>
+        <Button variant="ghost" handleClick={() => navigate("/quiz/results")}>
           <p className="min-w-max">View Results</p>
         </Button>
         <Button

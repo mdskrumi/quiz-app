@@ -8,7 +8,7 @@ const QuizQuestion: React.FC<{
 }> = ({ question, setResults, results, currentQuestion }) => {
   return (
     <div className="mx-auto w-full">
-      <div className="mb-5 sm:mb-7">{question.question}</div>
+      <div className="mb-5 sm:mb-7 font-bold">{`Question: ${question.question}`}</div>
       <div className="flex flex-col gap-3">
         {question.options?.map((option) => {
           return (

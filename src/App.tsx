@@ -11,6 +11,7 @@ const Login = lazy(() => import("pages/login"));
 const QuestionPage = lazy(() => import("pages/question"));
 const CreateQuestionPage = lazy(() => import("pages/create-question"));
 const QuizPage = lazy(() => import("pages/quiz"));
+const ResultPage = lazy(() => import("pages/result"));
 
 import "./index.css";
 import QuestionProvider from "contexts/question-context";
@@ -32,6 +33,7 @@ function App() {
                 </Route>
                 <Route path="quiz" element={<UserOutlet />}>
                   <Route path="" element={<QuizPage />} />
+                  <Route path="results" element={<ResultPage />} />
                 </Route>
               </Routes>
             </QuestionProvider>
