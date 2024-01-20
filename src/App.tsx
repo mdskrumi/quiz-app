@@ -1,7 +1,12 @@
+import Login from "pages/login";
 import "./index.css";
 
 function App() {
-  return <div className="text-4xl">Quiz App</div>;
+  return (
+    <div>
+      <Login />
+    </div>
+  );
 }
 
 export default App;
