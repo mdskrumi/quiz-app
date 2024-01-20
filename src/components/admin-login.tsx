@@ -7,11 +7,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useUserContext } from "contexts/use-user-context";
-
-type TAdminLoginData = {
-  email: string;
-  password: string;
-};
+import { TAdminLoginData } from "libs/types";
 
 const AdminLogin = () => {
   const [showPassword, setShowPassword] = useState(false);

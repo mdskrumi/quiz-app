@@ -1,14 +1,18 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
-import "./index.css";
+import { Toaster } from "react-hot-toast";
 import { Suspense, lazy } from "react";
+
 import UserProvider from "contexts/user-context";
+
 import AdminOutlet from "components/admin-outlet";
 import UserOutlet from "components/user-outlet";
-import { Toaster } from "react-hot-toast";
 
 const Login = lazy(() => import("pages/login"));
 const QuestionPage = lazy(() => import("pages/question"));
+const CreateQuestionPage = lazy(() => import("pages/create-question"));
+
+import "./index.css";
+import QuestionProvider from "contexts/question-context";
 
 function App() {
   return (
@@ -16,16 +20,20 @@ function App() {
       <BrowserRouter>
         <Suspense fallback={<h1>Loading</h1>}>
           <UserProvider>
-            <Toaster position="top-right" />
-            <Routes>
-              <Route path="/" element={<Login />} />
-              <Route path="questions" element={<AdminOutlet />}>
-                <Route path="" element={<QuestionPage />} />
-              </Route>
-              <Route path="quiz" element={<UserOutlet />}>
-                <Route path="" element={<QuestionPage />} />
-              </Route>
-            </Routes>
+            <QuestionProvider>
+              <Toaster position="top-right" />
+              <Routes>
+                <Route path="" element={<Login />} />
+                <Route path="/questions" element={<AdminOutlet />}>
+                  <Route path="" element={<QuestionPage />} />
+                  <Route path="create" element={<CreateQuestionPage />} />
+                  <Route path="update/:id" element={<CreateQuestionPage />} />
+                </Route>
+                <Route path="quiz" element={<UserOutlet />}>
+                  <Route path="" element={<QuestionPage />} />
+                </Route>
+              </Routes>
+            </QuestionProvider>
           </UserProvider>
         </Suspense>
       </BrowserRouter>
