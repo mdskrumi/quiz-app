@@ -3,17 +3,31 @@ import { useQuestionContext } from "contexts/use-question-context";
 import { useNavigate } from "react-router-dom";
 import { CiEdit } from "react-icons/ci";
 import { MdOutlineDeleteForever } from "react-icons/md";
+import { useUserContext } from "contexts/use-user-context";
 
 const QuestionPage = () => {
   const navigate = useNavigate();
   const { questions, setQuestions } = useQuestionContext();
+  const { setUser } = useUserContext();
 
   return (
     <div>
       <h3 className="text-center">Your Questions for the Quiz</h3>
-      <div className="w-fit ml-auto">
-        <Button variant="secondary" handleClick={() => navigate("create")}>
-          Add New Question
+      <div className="w-fit ml-auto flex gap-3">
+        <Button variant="primary" handleClick={() => navigate("create")}>
+          <p className="min-w-max">Add New Question</p>
+        </Button>
+        <Button variant="ghost" handleClick={() => navigate("create")}>
+          <p className="min-w-max">View Results</p>
+        </Button>
+        <Button
+          variant="danger"
+          handleClick={() => {
+            setUser!(null);
+            navigate("/");
+          }}
+        >
+          <p className="min-w-max">Log out</p>
         </Button>
       </div>
       {questions && questions?.length > 0 ? (

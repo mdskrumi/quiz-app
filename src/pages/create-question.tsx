@@ -1,3 +1,4 @@
+import Button from "components/button";
 import QuestionForm from "components/question-form";
 import { useQuestionContext } from "contexts/use-question-context";
 import { TQuestion } from "libs/types";
@@ -24,6 +25,11 @@ const CreateQuestionPage = () => {
           ? "Update your Question for the Quiz"
           : "Create a new Question for the Quiz"}
       </h3>
+      <div className="w-fit ml-auto">
+        <Button variant="secondary" handleClick={() => navigate(-1)}>
+          Go Back
+        </Button>
+      </div>
       <QuestionForm
         question={question}
         onSubmit={(data) => {
