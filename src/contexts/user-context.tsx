@@ -13,9 +13,7 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
   );
 
   useEffect(() => {
-    if (user && user.type) {
-      localStorage.setItem("logged-user", JSON.stringify(user));
-    }
+    localStorage.setItem("logged-user", JSON.stringify(user));
   }, [user]);
 
   console.log(user);

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "contexts/use-user-context";
 import AdminLogin from "components/admin-login";
+import UserLogin from "components/user-login";
 
 type TLoginOption = "user" | "admin";
 
@@ -15,6 +16,8 @@ const Login: React.FC = () => {
   useEffect(() => {
     if (user && user?.type === "admin") {
       navigate("/questions");
+    } else if (user && user?.type === "user") {
+      navigate("/quiz");
     }
   }, [user, navigate]);
 
@@ -22,7 +25,7 @@ const Login: React.FC = () => {
     <div className="min-h-[100vh] mx-auto w-full">
       <h3 className="text-center py-7">Welcome to the Quiz Application</h3>
       <div className="w-full">
-        {loginOption === "user" ? <h1>user</h1> : <AdminLogin />}
+        {loginOption === "user" ? <UserLogin /> : <AdminLogin />}
 
         <div className="mt-4 mx-auto max-w-md text-center">
           <span>

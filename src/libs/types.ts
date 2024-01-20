@@ -11,7 +11,17 @@ export type TAdminLoginData = {
   password: string;
 };
 
+export type TUserLoginData = {
+  email: string;
+};
+
 export type TQuestion = {
   question: string;
   options: { title: string; value: number }[];
+};
+
+export type TResult = {
+  question: string;
+  result: number;
+  answered?: string;
 };

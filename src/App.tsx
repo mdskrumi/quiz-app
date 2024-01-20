@@ -10,6 +10,7 @@ import UserOutlet from "components/user-outlet";
 const Login = lazy(() => import("pages/login"));
 const QuestionPage = lazy(() => import("pages/question"));
 const CreateQuestionPage = lazy(() => import("pages/create-question"));
+const QuizPage = lazy(() => import("pages/quiz"));
 
 import "./index.css";
 import QuestionProvider from "contexts/question-context";
@@ -30,7 +31,7 @@ function App() {
                   <Route path="update/:id" element={<CreateQuestionPage />} />
                 </Route>
                 <Route path="quiz" element={<UserOutlet />}>
-                  <Route path="" element={<QuestionPage />} />
+                  <Route path="" element={<QuizPage />} />
                 </Route>
               </Routes>
             </QuestionProvider>
