@@ -52,7 +52,7 @@ const QuestionPage = () => {
                 </div>
                 {q.options.map((option) => {
                   return (
-                    <ul className="border-b">
+                    <ul className="border-b" key={option.title}>
                       <li className="grid grid-cols-2">
                         <p>{option.title}</p>
                         <p className="text-right">{option.value}</p>

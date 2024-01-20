@@ -103,6 +103,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ onSubmit, question }) => {
                 placeholder="Points"
                 {...register(`options.${index}.value`, {
                   required: "Option value is required",
+                  valueAsNumber: true,
                 })}
                 defaultValue={option.value}
                 className={`text-input`}

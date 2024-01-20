@@ -13,13 +13,13 @@ const QuizPage = () => {
   const { setUser } = useUserContext();
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [result, setResult] = useState<TResult[]>([]);
+  const [results, setResults] = useState<TResult[]>([]);
 
-  console.log(result);
+  console.log({ questions, results });
 
   useEffect(() => {
     if (questions)
-      setResult(
+      setResults(
         questions?.map((question) => {
           return {
             question: question.question,
@@ -47,7 +47,9 @@ const QuizPage = () => {
         <div className="grid grid-cols-1 gap-7">
           <QuizQuestion
             question={questions[currentQuestion]}
-            setResult={setResult}
+            currentQuestion={currentQuestion}
+            results={results}
+            setResults={setResults}
           />
           <div className="flex justify-between items-center">
             <Button
