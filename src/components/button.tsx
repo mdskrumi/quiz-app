@@ -41,7 +41,7 @@ const Button: React.FC<Props> = ({
     >
       {loading ? (
         <div className="m-auto animate-spin">
-          <FaSpinner />
+          <FaSpinner className="w-5 h-5" />
         </div>
       ) : (
         children
