@@ -9,7 +9,7 @@ const UserOutlet = () => {
       <Outlet />
     </div>
   ) : (
-    <Navigate to={"/"} />
+    <Navigate to={"/quiz-app"} />
   );
 };
 

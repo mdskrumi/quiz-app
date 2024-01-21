@@ -44,7 +44,7 @@ const CreateQuestionPage = () => {
           } else newQuestions = [...questions!, data];
 
           setQuestions!(newQuestions!);
-          navigate("/questions");
+          navigate("/quiz-app/questions");
         }}
       />
     </div>

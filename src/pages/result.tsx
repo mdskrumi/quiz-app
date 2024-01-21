@@ -1,4 +1,5 @@
 import Button from "components/button";
+import LogoutButton from "components/logout-button";
 import ResultCard from "components/result-card";
 import { useUserContext } from "contexts/use-user-context";
 import { TResults } from "libs/types";
@@ -8,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const ResultPage = () => {
   const navigate = useNavigate();
-  const { user, setUser } = useUserContext();
+  const { user } = useUserContext();
 
   const [results, setResults] = useState<TResults>();
 
@@ -33,23 +34,16 @@ const ResultPage = () => {
         <Button
           variant="primary"
           handleClick={() => {
-            navigate(user?.type === "admin" ? "/questions" : "/quiz");
+            navigate(
+              user?.type === "admin" ? "/quiz-app/questions" : "/quiz-app/quiz"
+            );
           }}
         >
           <p className="min-w-max">
-            {" "}
             {user?.type === "admin" ? "Questions" : "Try Again"}
           </p>
         </Button>
-        <Button
-          variant="danger"
-          handleClick={() => {
-            setUser!(null);
-            navigate("/");
-          }}
-        >
-          <p className="min-w-max">Log out</p>
-        </Button>
+        <LogoutButton />
       </div>
       <div>
         {results ? (

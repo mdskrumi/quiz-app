@@ -15,9 +15,9 @@ const Login: React.FC = () => {
 
   useEffect(() => {
     if (user && user?.type === "admin") {
-      navigate("/questions");
+      navigate("/quiz-app/questions");
     } else if (user && user?.type === "user") {
-      navigate("/quiz");
+      navigate("/quiz-app/quiz");
     }
   }, [user, navigate]);
 

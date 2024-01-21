@@ -32,17 +32,17 @@ function App() {
             <QuestionProvider>
               <Toaster position="top-right" />
               <Routes>
-                <Route path="" element={<Login />} />
-                <Route path="/questions" element={<AdminOutlet />}>
+                <Route path="quiz-app" element={<Login />} />
+                <Route path="/quiz-app/questions" element={<AdminOutlet />}>
                   <Route path="" element={<QuestionPage />} />
                   <Route path="create" element={<CreateQuestionPage />} />
                   <Route path="update/:id" element={<CreateQuestionPage />} />
                 </Route>
-                <Route path="quiz" element={<UserOutlet />}>
+                <Route path="/quiz-app/quiz" element={<UserOutlet />}>
                   <Route path="" element={<QuizPage />} />
                   <Route path="results" element={<ResultPage />} />
                 </Route>
-                <Route path="*" element={<Navigate to={"/"} />} />
+                {/* <Route path="*" element={<Navigate to={"/quiz-app"} />} /> */}
               </Routes>
             </QuestionProvider>
           </UserProvider>

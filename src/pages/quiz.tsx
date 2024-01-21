@@ -7,11 +7,12 @@ import Button from "components/button";
 import QuizQuestion from "components/quiz-quesiton";
 import { TResult } from "libs/types";
 import ConfirmDialog from "components/confirm-dialog";
+import LogoutButton from "components/logout-button";
 
 const QuizPage = () => {
   const navigate = useNavigate();
   const { questions } = useQuestionContext();
-  const { user, setUser } = useUserContext();
+  const { user } = useUserContext();
 
   const [quizStaterd, setQuizStarted] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -35,15 +36,7 @@ const QuizPage = () => {
         <p>{`Hi! ${user?.email}`}</p>
         {!quizStaterd ? (
           <div className="w-fit ml-auto flex gap-3">
-            <Button
-              variant="danger"
-              handleClick={() => {
-                setUser!(null);
-                navigate("/");
-              }}
-            >
-              <p className="min-w-max">Log out</p>
-            </Button>
+            <LogoutButton />
           </div>
         ) : (
           <h3 className="text-center mb-3">{`Your Questions for the Quiz. ${
@@ -98,7 +91,7 @@ const QuizPage = () => {
                       "savedResults",
                       JSON.stringify(savedResults)
                     );
-                    navigate("/quiz/results");
+                    navigate("/quiz-app/quiz/results");
                   }}
                 >
                   <Button>Submit</Button>
