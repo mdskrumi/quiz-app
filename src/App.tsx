@@ -42,7 +42,7 @@ function App() {
                   <Route path="" element={<QuizPage />} />
                   <Route path="results" element={<ResultPage />} />
                 </Route>
-                {/* <Route path="*" element={<Navigate to={"/quiz-app"} />} /> */}
+                <Route path="*" element={<Navigate to={"/quiz-app"} />} />
               </Routes>
             </QuestionProvider>
           </UserProvider>
