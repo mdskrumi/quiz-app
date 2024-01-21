@@ -16,8 +16,6 @@ const QuestionProvider = ({ children }: { children: React.ReactNode }) => {
     localStorage.setItem("questions", JSON.stringify(questions));
   }, [questions]);
 
-  console.log(questions);
-
   return (
     <QuestionContext.Provider value={{ questions, setQuestions }}>
       {children}

@@ -9,7 +9,7 @@ type TLoginOption = "user" | "admin";
 const Login: React.FC = () => {
   const navigate = useNavigate();
 
-  const [loginOption, setLoginOption] = useState<TLoginOption>("admin");
+  const [loginOption, setLoginOption] = useState<TLoginOption>("user");
 
   const { user } = useUserContext();
 

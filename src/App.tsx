@@ -1,8 +1,10 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
 import { Suspense, lazy } from "react";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { FaSpinner } from "react-icons/fa";
+import { Toaster } from "react-hot-toast";
 
 import UserProvider from "contexts/user-context";
+import QuestionProvider from "contexts/question-context";
 
 import AdminOutlet from "components/admin-outlet";
 import UserOutlet from "components/user-outlet";
@@ -14,13 +16,18 @@ const QuizPage = lazy(() => import("pages/quiz"));
 const ResultPage = lazy(() => import("pages/result"));
 
 import "./index.css";
-import QuestionProvider from "contexts/question-context";
 
 function App() {
   return (
     <div>
       <BrowserRouter>
-        <Suspense fallback={<h1>Loading</h1>}>
+        <Suspense
+          fallback={
+            <div className="abs-center">
+              <FaSpinner className="w-12 h-12 animate-spin" />
+            </div>
+          }
+        >
           <UserProvider>
             <QuestionProvider>
               <Toaster position="top-right" />
@@ -35,6 +42,7 @@ function App() {
                   <Route path="" element={<QuizPage />} />
                   <Route path="results" element={<ResultPage />} />
                 </Route>
+                <Route path="*" element={<Navigate to={"/"} />} />
               </Routes>
             </QuestionProvider>
           </UserProvider>

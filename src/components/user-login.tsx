@@ -21,7 +21,7 @@ const UserLogin = () => {
     setLoading(true);
     setTimeout(() => {
       setUser!({ type: "user", email: data.email });
-      toast.success("Success");
+      toast.success("User Login Successful");
       setLoading(false);
     }, 2500);
   };

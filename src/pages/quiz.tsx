@@ -17,8 +17,6 @@ const QuizPage = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [results, setResults] = useState<TResult[]>([]);
 
-  console.log({ questions, results });
-
   useEffect(() => {
     if (questions)
       setResults(
@@ -34,6 +32,7 @@ const QuizPage = () => {
   return (
     <>
       <div>
+        <p>{`Hi! ${user?.email}`}</p>
         {!quizStaterd ? (
           <div className="w-fit ml-auto flex gap-3">
             <Button

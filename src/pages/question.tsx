@@ -8,10 +8,11 @@ import { useUserContext } from "contexts/use-user-context";
 const QuestionPage = () => {
   const navigate = useNavigate();
   const { questions, setQuestions } = useQuestionContext();
-  const { setUser } = useUserContext();
+  const { setUser, user } = useUserContext();
 
   return (
     <div>
+      <p>{`Hi! ${user?.email}`}</p>
       <h3 className="text-center">Your Questions for the Quiz</h3>
       <div className="w-fit ml-auto flex gap-3">
         <Button variant="primary" handleClick={() => navigate("create")}>

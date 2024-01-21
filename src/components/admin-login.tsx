@@ -24,7 +24,7 @@ const AdminLogin = () => {
       setLoading(true);
       setTimeout(() => {
         setUser!({ type: "admin", email: data.email });
-        toast.success("Success");
+        toast.success("Admin Login Successful");
         setLoading(false);
       }, 2500);
     } else {

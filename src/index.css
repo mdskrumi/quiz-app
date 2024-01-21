@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-ui text-black;
+    @apply bg-ui text-black bg-gradient-to-r from-blue-50 from-10% via-sky-50 via-30% to-emerald-50 to-90% animate-gradient;
   }
 
   #root {

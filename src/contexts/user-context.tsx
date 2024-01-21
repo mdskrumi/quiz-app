@@ -16,8 +16,6 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
     localStorage.setItem("logged-user", JSON.stringify(user));
   }, [user]);
 
-  console.log(user);
-
   return (
     <UserContext.Provider value={{ user, setUser }}>
       {children}

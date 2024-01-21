@@ -18,8 +18,10 @@ const ResultPage = () => {
         setResults(JSON.parse(localStorage.getItem("savedResults")!) || null);
       } else {
         const savedResults = JSON.parse(localStorage.getItem("savedResults")!);
-        const result = { [user?.email]: savedResults[user?.email] };
-        setResults(result);
+        if (savedResults![user?.email]) {
+          const result = { [user?.email]: savedResults[user?.email] };
+          setResults(result);
+        }
       }
     }
   }, [user]);
@@ -50,20 +52,22 @@ const ResultPage = () => {
         </Button>
       </div>
       <div>
-        {results
-          ? Object.keys(results).map((email) => {
-              return (
-                <div key={email}>
-                  <h4>{email}</h4>
-                  <div>
-                    {results[email]?.map((res, idx) => (
-                      <ResultCard result={res} key={idx} />
-                    ))}
-                  </div>
+        {results ? (
+          Object.keys(results).map((email) => {
+            return (
+              <div key={email}>
+                <h4>{email}</h4>
+                <div>
+                  {results[email]?.map((res, idx) => (
+                    <ResultCard result={res} key={idx} />
+                  ))}
                 </div>
-              );
-            })
-          : null}
+              </div>
+            );
+          })
+        ) : (
+          <div className="text-center opacity-70 text-xl sm:text-2xl md:text-3xl abs-center">{`You do not have any results available now.`}</div>
+        )}
       </div>
     </div>
   );
