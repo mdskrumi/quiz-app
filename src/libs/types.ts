@@ -25,3 +25,7 @@ export type TResult = {
   result: number;
   answered?: string;
 };
+
+type TUserResults = TResult[][];
+
+export type TResults = Record<string, TUserResults>;
